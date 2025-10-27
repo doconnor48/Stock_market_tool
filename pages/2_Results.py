@@ -43,7 +43,7 @@ if len(assets) != 0:
 
     #print out optimnal vector
     pvec = data['pvec']
-    mean_returns = data['mean_returns']
+    mean_returns = data["mr"]
     percentages = [a/portfolio_total * 100 for a in pvec]
     df = pd.DataFrame({
         "Asset": assets,
