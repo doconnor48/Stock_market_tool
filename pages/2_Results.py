@@ -49,13 +49,13 @@ if len(assets) != 0:
         "Asset": assets,
         "Amount ($)": pvec,
         "Percentage (%)": percentages,
-        "Mean Returns (%)": mean_returns * 100
+        f"Mean Returns (%) / {sampling_rate}": mean_returns * 100
     })
 
     # Optional: format columns for readability
     df["Amount ($)"] = df["Amount ($)"].map("${:,.2f}".format)
     df["Percentage (%)"] = df["Percentage (%)"].map("{:.2f}%".format)
-    df["Mean Returns (%)"] = df["Mean Returns (%)"].map("{:.2f}%".format)
+    df[f"Mean Returns (%) / {sampling_rate}"] = df[f"Mean Returns (%) / {sampling_rate}"].map("{:.2f}%".format)
 
     # Display in Streamlit
     st.write("### Portfolio Allocation")
