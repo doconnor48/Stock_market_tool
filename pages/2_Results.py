@@ -55,7 +55,7 @@ if len(assets) != 0:
     # Optional: format columns for readability
     df["Amount ($)"] = df["Amount ($)"].map("${:,.2f}".format)
     df["Percentage (%)"] = df["Percentage (%)"].map("{:.2f}%".format)
-    df["Mean Returns (%)"] = df["Mean Returns (%)"].map("${:,.2f}".format)
+    df["Mean Returns (%)"] = df["Mean Returns (%)"].map("{:.2f}%".format)
 
     # Display in Streamlit
     st.write("### Portfolio Allocation")
