@@ -112,6 +112,7 @@ class PortfolioOptimizer:
             "assets": self.assets,
             "pvec": self.x.flatten(),
             "expected_returns": self.expected_returns,
+            "mean_returns": self.mean_returns.flatten(),
             "risk": self.risk,
             'std': self.std,
             "method": method

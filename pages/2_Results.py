@@ -43,16 +43,19 @@ if len(assets) != 0:
 
     #print out optimnal vector
     pvec = data['pvec']
+    mean_returns = data['mean_returns']
     percentages = [a/portfolio_total * 100 for a in pvec]
     df = pd.DataFrame({
         "Asset": assets,
         "Amount ($)": pvec,
-        "Percentage (%)": percentages
+        "Percentage (%)": percentages,
+        "Mean Returns (%)": mean_returns * 100
     })
 
     # Optional: format columns for readability
     df["Amount ($)"] = df["Amount ($)"].map("${:,.2f}".format)
     df["Percentage (%)"] = df["Percentage (%)"].map("{:.2f}%".format)
+    df["Mean Returns (%)"] = df["Mean Returns (%)"].map("${:,.2f}".format)
 
     # Display in Streamlit
     st.write("### Portfolio Allocation")
