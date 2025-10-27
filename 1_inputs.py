@@ -98,20 +98,20 @@ st.write(f"📊 Sampling every **{sampling_choice}** → interval code: `{sampli
 # --- (6) Portfolio Risk and Phi Selector ---
 st.subheader("🎯 Portfolio Risk Settings")
 
-st.markdown("**φ (phi)** controls the risk-return tradeoff. Recommended range: `0.1 ≤ φ ≤ 10,000`")
+st.markdown("**φ (phi)** controls the risk-return tradeoff. Recommended range: `0.01 ≤ φ ≤ 100,000`")
 
 risk_mode = st.radio(
     "Select Risk Mode:",
-    options=["Low Risk (φ = 50)", "Medium Risk (φ = 250)", "High Risk (φ = 1250)", "Manual φ Entry"],
+    options=["Low Risk (φ = 1)", "Medium Risk (φ = 250)", "High Risk (φ = 10000)", "Manual φ Entry"],
     index=1,  # Default to Medium Risk
     help="Select a preset risk level or enter your own φ value."
 )
 
 # Default phi values for presets
 phi_values = {
-    "Low Risk (φ = 50)": 50,
+    "Low Risk (φ = 1)": 1,
     "Medium Risk (φ = 250)": 250,
-    "High Risk (φ = 1250)": 1250
+    "High Risk (φ = 10000)": 10000
 }
 
 if risk_mode in phi_values:
@@ -119,10 +119,10 @@ if risk_mode in phi_values:
 else:
     phi = st.number_input(
         "Enter custom φ (risk factor):",
-        min_value=0.1,
-        max_value=10000.0,
+        min_value=0.01,
+        max_value=100000.0,
         value=250.0,
-        step=0.1,
+        step=0.01,
         help="Smaller φ → lower risk tolerance; Larger φ → higher risk tolerance."
     )
 
