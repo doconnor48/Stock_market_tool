@@ -83,8 +83,8 @@ class PortfolioOptimizer:
             ones = np.ones((self.cov_matrix.shape[0],1))
             cov_inv = np.linalg.inv(self.cov_matrix)
 
-            lda = (ones.T@ cov_inv @ self.mean_returns - self.phi*self.total)/(ones.T @ cov_inv @ ones)
-            x_opt = ((cov_inv @ self.mean_returns)-cov_inv @ ones * lda) / self.phi
+            lda = (ones.T@ cov_inv @ self.mean_returns*self.phi - 2*self.total)/(ones.T @ cov_inv @ ones)
+            x_opt = ((cov_inv @ self.mean_returns * self.phi)-cov_inv @ ones * lda) / 2
             x_opt = x_opt.flatten()
             self.x = x_opt
             
